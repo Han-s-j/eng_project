@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- 부트스트랩 링크 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 검색창 돋보기 아이콘 -->
+    <link rel="shortcut icon" href="image/favicon-16x16.png" type="image/x-icon">
+    <style>
+        /* 모든 태그의 기본 margin, padding 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            /* background-color: rgb(255, 238, 206); */
+        }
+        /* 모든 div에 테두리를 설정한 후 작업, 작업이 끝나면 제거  */
+        div {
+            /* border: 1px solid black; */
+        }
+        /* 네비 로고 */
+        /* .nav-icon{
+            height: 50px;
+        } */
+         /* sign in 버튼 효과 */
+         #sing-in{
+            color: rgb(5, 197, 255);
+         }
+         /* 네비메뉴 버튼 마우스 올렸을 때 효과 */
+         .nav-item:hover{
+            text-decoration: underline black;
+         }
+        /* 중앙 로고  */
+        .box-sheep-icon {
+            position: relative;
+        }
+        .sheep-icon {
+            height: 150px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-55%, 80%);
+        }
+        /* 화면 구역 - 검색 */
+        .search-section {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* 검색 전체 박스 */
+        .search-box {
+            height: 50px;
+            width: 500px;
+            background: white;
+            border-radius: 40px;
+            padding: 15px;
+            /* border: 1px solid #797979; */
+            border: 1px solid #797979;
+            /* 테두리에 그림자 효과 주기 */
+            /* 첫번째 px은 그림자의 x축 방향 위치 */
+            /* 두번째 px은 그림자의 y축 방향 위치 */
+            /* 세번째 px은 그림자의 옅은 (퍼트림)정도 */
+            /* 네번째 px은 그림자의 크기 */
+            box-shadow: 0px 0px 3px 1px #c2c2c2;
+        }
+         /* 검색 입력 창 */
+         .search-txt {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding-left: 10px;
+            color: #797979;
+            font-size: 16px;
+            line-height: 20px; 
+            width: 240px;
+        }
+        /* 검색 돋보기 버튼 */
+        .search-btn {
+            float: right;
+            width: 40px;
+            height: 100%;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            font-size: 20px;
+            /* flex-container 적용: flex-container 안에 내용물(flex-item)을 가로방향 배치 (width-내용물, height-컨테이너만큼 알아서 차지) */
+            display: flex;
+            /* main-axis 메인축(오뎅꼬치) 방향 정렬 */
+            justify-content: center;
+            /* cross-axis 교차축 방향 정렬 */
+            align-items: center;
+            cursor: pointer;
+            fill: rgb(5, 197, 255);
+        }
+        /* 알파벳 메뉴 - 바 */
+        .menu-alphabet {
+            /* background-color: rgb(5, 197, 255); */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* padding-top: 10px; */
+            /* padding-bottom: 10px; */
+            border-radius: 20px;
+        }
+        .menu-alphabet2 {
+            transform: translate(-50%, 50%);
+        }
+        /* 알파벳 메뉴 - 알파벳들 */
+        .alphabet {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .box-alphabet {
+            display: flex;
+            justify-content: space-between;
+            /* padding-bottom: 3px; */
+            padding-top: 3px;
+        }
+        /* 알파벳에 마우스 커서 올렸을 때 반응 */
+        .alphabet:hover {
+            /* text-decoration: underline black; */
+            color: rgb(5, 197, 255);
+        }
+    </style>
+</head>
+<body>
+    <!-- 모든 영역을 감싸는 하나의 div를 선언 후 시작 -->
+    <div class="container">
+        <!-- 내비 시작 -->
+        <nav class="navbar navbar-expand-lg bg-white fixed-top">
+            <div class="container-fluid">
+            <a class="navbar-brand " href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">My page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="sing-in">Sign in</a>
+                </li>
+                </ul>          
+            </div>
+            </div>
+        </nav>
+        <!-- 내비 끝 -->
+        <!-- 중앙 로고 시작 -->
+        <div class="box-sheep-icon">
+            <img class="sheep-icon" src="sheep_icon3.png" alt="">
+        </div>
+        <!-- 중앙 로고 끝 -->
+        <!-- 검색창 -->
+        <section class="search-section">
+            <!-- form: 폼에서 받아온 내용을 action 속성에 적힌 서버의 주소에 전달해주는 기능을 함
+                출처: https://jyitstory.tistory.com/142 [JY Tech Blog:티스토리] -->
+            <form class="search-box" action="" method="get">
+                <input class="search-txt" type="text" placeholder="검색어를 입력하세요." size="50">
+                <!-- 클릭 시에 입력된 내용이 제출되어야 하므로 type은 submit으로 함 -->
+                <button class="search-btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="" class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                </button>
+            </form>
+        </section>
+        <!-- 검색창 끝 -->
+         <section class="menu-alphabet">
+         <!-- 알파벳 메뉴 바 시작 -->
+            <div class="box-alphabet"><a class="alphabet" href="main.html">A</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">B</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">C</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">D</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">E</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">F</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">G</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">H</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">I</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">J</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">K</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">L</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">M</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">N</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">O</a></div>
+            <div class="box-alphabet"><a class="alphabet" href="">P</a></div>
+        </section>
+        <section class="menu-alphabet menu-alphabet2">
+            <!-- 알파벳 메뉴 바 시작 -->
+               <div class="box-alphabet"><a class="alphabet" href="">Q</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">R</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">S</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">T</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">U</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">V</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">W</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">X</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">Y</a></div>
+               <div class="box-alphabet"><a class="alphabet" href="">Z</a></div>
+           </section>
+        <!-- 알파벳 메뉴 바 끝 -->
+    </div>
+</body>
+</html>
