@@ -1,8 +1,8 @@
 import json
 import requests
 
-app_id = "27b7e407"
-app_key = "90833dce0340e245fa4e67934562a095"
+app_id = ""
+app_key = ""
 endpoint = "entries" #sentences #entries
 language_code = "en-us"
 word_id = "about"
