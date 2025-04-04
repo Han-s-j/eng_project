@@ -1,0 +1,621 @@
+{
+    "id": "about",
+    "metadata": {
+        "operation": "retrieve",
+        "provider": "Oxford University Press",
+        "schema": "RetrieveEntry"
+    },
+    "results": [
+        {
+            "id": "about",
+            "language": "en-us",
+            "lexicalEntries": [
+                {
+                    "entries": [
+                        {
+                            "etymologies": [
+                                "Old English onb\u016btan, from on \u2018in, on\u2019 + b\u016btan \u2018outside of\u2019 (see but)"
+                            ],
+                            "grammaticalFeatures": [
+                                {
+                                    "id": "preposition",
+                                    "text": "Preposition",
+                                    "type": "Adposition Type"
+                                }
+                            ],
+                            "pronunciations": [
+                                {
+                                    "dialects": [
+                                        "American English"
+                                    ],
+                                    "phoneticNotation": "respell",
+                                    "phoneticSpelling": "\u0259\u02c8bout"
+                                },
+                                {
+                                    "audioFile": "https://audio.oxforddictionaries.com/en/mp3/about__us_1.mp3",
+                                    "dialects": [
+                                        "American English"
+                                    ],
+                                    "phoneticNotation": "IPA",
+                                    "phoneticSpelling": "\u0259\u02c8ba\u028at"
+                                }
+                            ],
+                            "senses": [
+                                {
+                                    "constructions": [
+                                        {
+                                            "text": "all about"
+                                        }
+                                    ],
+                                    "definitions": [
+                                        "on the subject of; concerning"
+                                    ],
+                                    "examples": [
+                                        {
+                                            "text": "I was thinking about you"
+                                        },
+                                        {
+                                            "text": "it's all about having fun"
+                                        },
+                                        {
+                                            "text": "an article about yellow fever"
+                                        }
+                                    ],
+                                    "id": "m_en_gbus0002550.006",
+                                    "shortDefinitions": [
+                                        "on subject of"
+                                    ],
+                                    "subsenses": [
+                                        {
+                                            "definitions": [
+                                                "so as to affect"
+                                            ],
+                                            "examples": [
+                                                {
+                                                    "text": "there's nothing we can do about it"
+                                                }
+                                            ],
+                                            "id": "m_en_gbus0002550.008",
+                                            "shortDefinitions": [
+                                                "so as to affect"
+                                            ]
+                                        }
+                                    ],
+                                    "synonyms": [
+                                        {
+                                            "language": "en",
+                                            "text": "regarding"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "concerning"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "with reference to"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "referring to"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "with regard to"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "with respect to"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "respecting"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "relating to"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "on"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "touching on"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "dealing with"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "relevant to"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "with relevance to"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "connected with"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in connection with"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "on the subject of"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in the matter of"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "apropos"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "re"
+                                        }
+                                    ],
+                                    "thesaurusLinks": [
+                                        {
+                                            "entry_id": "about",
+                                            "sense_id": "t_en_gb0000059.001"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "definitions": [
+                                        "used to indicate movement within a particular area"
+                                    ],
+                                    "examples": [
+                                        {
+                                            "text": "she looked about the room"
+                                        }
+                                    ],
+                                    "id": "m_en_gbus0002550.011",
+                                    "regions": [
+                                        {
+                                            "id": "british",
+                                            "text": "British"
+                                        }
+                                    ],
+                                    "shortDefinitions": [
+                                        "used to indicate movement within particular area"
+                                    ],
+                                    "synonyms": [
+                                        {
+                                            "language": "en",
+                                            "text": "around"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "round"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "throughout"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "over"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "through"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "all over"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in all parts of"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "on every side of"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "encircling"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "surrounding"
+                                        }
+                                    ],
+                                    "thesaurusLinks": [
+                                        {
+                                            "entry_id": "about",
+                                            "sense_id": "t_en_gb0000059.002"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "definitions": [
+                                        "used to express location in a particular place"
+                                    ],
+                                    "examples": [
+                                        {
+                                            "text": "rugs strewn about the hall"
+                                        },
+                                        {
+                                            "text": "he produced a knife from somewhere about his person"
+                                        }
+                                    ],
+                                    "id": "m_en_gbus0002550.013",
+                                    "regions": [
+                                        {
+                                            "id": "british",
+                                            "text": "British"
+                                        }
+                                    ],
+                                    "shortDefinitions": [
+                                        "used to express location in particular place"
+                                    ],
+                                    "subsenses": [
+                                        {
+                                            "definitions": [
+                                                "used to describe a quality apparent in a person"
+                                            ],
+                                            "examples": [
+                                                {
+                                                    "text": "there was a look about her that said everything"
+                                                }
+                                            ],
+                                            "id": "m_en_gbus0002550.014",
+                                            "shortDefinitions": [
+                                                "used to describe quality apparent in person"
+                                            ]
+                                        }
+                                    ],
+                                    "synonyms": [
+                                        {
+                                            "language": "en",
+                                            "text": "around"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in circulation"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in existence"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "current"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "going on"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "prevailing"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "prevalent"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "widespread"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "pervasive"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "endemic"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "happening"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in the air"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "abroad"
+                                        }
+                                    ],
+                                    "thesaurusLinks": [
+                                        {
+                                            "entry_id": "about",
+                                            "sense_id": "t_en_gb0000059.010"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "language": "en-us",
+                    "lexicalCategory": {
+                        "id": "adposition",
+                        "text": "Adposition"
+                    },
+                    "phrases": [
+                        {
+                            "id": "about_to_do_something",
+                            "text": "about to do something"
+                        },
+                        {
+                            "id": "be_not_about_to_do_something",
+                            "text": "be not about to do something"
+                        },
+                        {
+                            "id": "know_what_one_is_about",
+                            "text": "know what one is about"
+                        }
+                    ],
+                    "text": "about"
+                },
+                {
+                    "entries": [
+                        {
+                            "etymologies": [
+                                "Old English onb\u016btan, from on \u2018in, on\u2019 + b\u016btan \u2018outside of\u2019 (see but)"
+                            ],
+                            "pronunciations": [
+                                {
+                                    "dialects": [
+                                        "American English"
+                                    ],
+                                    "phoneticNotation": "respell",
+                                    "phoneticSpelling": "\u0259\u02c8bout"
+                                },
+                                {
+                                    "audioFile": "https://audio.oxforddictionaries.com/en/mp3/about__us_1.mp3",
+                                    "dialects": [
+                                        "American English"
+                                    ],
+                                    "phoneticNotation": "IPA",
+                                    "phoneticSpelling": "\u0259\u02c8ba\u028at"
+                                }
+                            ],
+                            "senses": [
+                                {
+                                    "definitions": [
+                                        "used to indicate movement in an area"
+                                    ],
+                                    "examples": [
+                                        {
+                                            "text": "men were floundering about"
+                                        },
+                                        {
+                                            "text": "finding my way about"
+                                        }
+                                    ],
+                                    "id": "m_en_gbus0002550.017",
+                                    "regions": [
+                                        {
+                                            "id": "british",
+                                            "text": "British"
+                                        }
+                                    ],
+                                    "shortDefinitions": [
+                                        "used to indicate movement within area"
+                                    ],
+                                    "synonyms": [
+                                        {
+                                            "language": "en",
+                                            "text": "around"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "here and there"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "to and fro"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "back and forth"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "from place to place"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "hither and thither"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in every direction"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in all directions"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "abroad"
+                                        }
+                                    ],
+                                    "thesaurusLinks": [
+                                        {
+                                            "entry_id": "about",
+                                            "sense_id": "t_en_gb0000059.006"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "definitions": [
+                                        "used to express location in a particular place"
+                                    ],
+                                    "examples": [
+                                        {
+                                            "text": "there was a lot of flu about"
+                                        },
+                                        {
+                                            "text": "a thief about in the hotel"
+                                        }
+                                    ],
+                                    "id": "m_en_gbus0002550.020",
+                                    "regions": [
+                                        {
+                                            "id": "british",
+                                            "text": "British"
+                                        }
+                                    ],
+                                    "shortDefinitions": [
+                                        "used to express location in particular place"
+                                    ],
+                                    "synonyms": [
+                                        {
+                                            "language": "en",
+                                            "text": "near"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "nearby"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "around"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "about the place"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "hereabouts"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "not far off/away"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "close by"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in the vicinity"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in the neighbourhood"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "at hand"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "within reach"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "on the doorstep"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "(just) around the corner"
+                                        }
+                                    ],
+                                    "thesaurusLinks": [
+                                        {
+                                            "entry_id": "about",
+                                            "sense_id": "t_en_gb0000059.007"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "definitions": [
+                                        "(used with a number or quantity) approximately"
+                                    ],
+                                    "examples": [
+                                        {
+                                            "text": "reduced by about 5 percent"
+                                        },
+                                        {
+                                            "text": "he's about 35"
+                                        }
+                                    ],
+                                    "id": "m_en_gbus0002550.022",
+                                    "shortDefinitions": [
+                                        "approximately"
+                                    ],
+                                    "synonyms": [
+                                        {
+                                            "language": "en",
+                                            "text": "approximately"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "roughly"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "around"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "round about"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in the neighbourhood/region of"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "in the area of"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "of the order of"
+                                        },
+                                        {
+                                            "language": "en",
+                                            "text": "something like"
+                                        }
+                                    ],
+                                    "thesaurusLinks": [
+                                        {
+                                            "entry_id": "about",
+                                            "sense_id": "t_en_gb0000059.008"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "language": "en-us",
+                    "lexicalCategory": {
+                        "id": "adverb",
+                        "text": "Adverb"
+                    },
+                    "phrases": [
+                        {
+                            "id": "about_to_do_something",
+                            "text": "about to do something"
+                        },
+                        {
+                            "id": "be_not_about_to_do_something",
+                            "text": "be not about to do something"
+                        },
+                        {
+                            "id": "know_what_one_is_about",
+                            "text": "know what one is about"
+                        }
+                    ],
+                    "text": "about"
+                }
+            ],
+            "type": "headword",
+            "word": "about"
+        }
+    ],
+    "word": "about"
+}
