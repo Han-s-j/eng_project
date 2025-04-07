@@ -35,6 +35,18 @@ CREATE TABLE ex_list(
 
 SELECT *
 FROM word_list;
+
+SELECT word_eng
+FROM word_list
+WHERE word_eng LIKE 'a%';
+
+SELECT
+    word_num
+    ,word_eng
+FROM word_list
+WHERE word_num = 1;
+
+
 SELECT *
 FROM audio;
 
@@ -42,5 +54,10 @@ SELECT a.word_eng, def_eng, ex_eng
 FROM word_list a
 JOIN def_list b ON a.word_num = b.word_num
 JOIN ex_list c ON b.def_num = c.def_num;
+
+-- 단어번호에 맞는 예문 출력
+SELECT def_eng
+FROM def_list
+WHERE word_num = 1;
 
 
