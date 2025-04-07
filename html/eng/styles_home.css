@@ -1,0 +1,123 @@
+/* 모든 태그의 기본 margin, padding 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* .container { */
+    /* background-color: rgb(255, 238, 206); */
+/* } */
+/* 모든 div에 테두리를 설정한 후 작업, 작업이 끝나면 제거  */
+/* div { */
+    /* border: 1px solid black; */
+/* } */
+/* 네비 로고 */
+/* .nav-icon{
+    height: 50px;
+} */
+ /* sign in 버튼 효과 */
+ #sing-in{
+    color: rgb(5, 197, 255);
+ }
+ /* 네비메뉴 버튼 마우스 올렸을 때 효과 */
+ .nav-item:hover{
+    text-decoration: underline black;
+ }
+/* 중앙 로고  */
+.box-sheep-icon {
+    position: relative;
+}
+.sheep-icon {
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-55%, 80%);
+}
+/* 화면 구역 - 검색 */
+.search-section {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 검색 전체 박스 */
+.search-box {
+    height: 50px;
+    width: 500px;
+    background: white;
+    border-radius: 40px;
+    padding: 15px;
+    /* border: 1px solid #797979; */
+    border: 1px solid #797979;
+    /* 테두리에 그림자 효과 주기 */
+    /* 첫번째 px은 그림자의 x축 방향 위치 */
+    /* 두번째 px은 그림자의 y축 방향 위치 */
+    /* 세번째 px은 그림자의 옅은 (퍼트림)정도 */
+    /* 네번째 px은 그림자의 크기 */
+    box-shadow: 0px 0px 3px 1px #c2c2c2;
+}
+ /* 검색 입력 창 */
+ .search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding-left: 10px;
+    color: #797979;
+    font-size: 16px;
+    line-height: 20px; 
+    width: 240px;
+}
+/* 검색 돋보기 버튼 */
+.search-btn {
+    float: right;
+    width: 40px;
+    height: 100%;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    font-size: 20px;
+    /* flex-container 적용: flex-container 안에 내용물(flex-item)을 가로방향 배치 (width-내용물, height-컨테이너만큼 알아서 차지) */
+    display: flex;
+    /* main-axis 메인축(오뎅꼬치) 방향 정렬 */
+    justify-content: center;
+    /* cross-axis 교차축 방향 정렬 */
+    align-items: center;
+    cursor: pointer;
+    fill: rgb(5, 197, 255);
+}
+/* 알파벳 메뉴 - 바 */
+.menu-alphabet {
+    /* background-color: rgb(5, 197, 255); */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    border-radius: 20px;
+}
+.menu-alphabet2 {
+    transform: translate(-50%, 50%);
+}
+/* 알파벳 메뉴 - 알파벳들 */
+.alphabet {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+}
+.box-alphabet {
+    display: flex;
+    justify-content: space-between;
+    /* padding-bottom: 3px; */
+    padding-top: 3px;
+}
+/* 알파벳에 마우스 커서 올렸을 때 반응 */
+.alphabet:hover {
+    /* text-decoration: underline black; */
+    color: rgb(5, 197, 255);
+}

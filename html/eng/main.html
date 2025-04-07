@@ -9,69 +9,82 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        /* 모든 태그의 기본 margin, padding 초기화 */
-        * {
-            margin: 0;
-            padding: 0;
+        body {
+            -ms-overflow-style: none;
         }
 
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* 예문 박스 */
+        .example-box {
+            position: relative;
+            -ms-overflow-style: none;
+            background: white;
+            border: 2px solid gray;
+            /* border-radius: 25px; */
+            transform: translate(-20%, 18%);
+            width: 500px;
+            height: 700px;
+            overflow-y: scroll;
+        }
+
+        /*특정 부분 스크롤바 없애기*/
+        /* .example::-webkit-scrollbar {
+            display: none;
+        } */
+        /* 문장작성 박스 */
+        .sentence-box {
+            position: relative;
+            -ms-overflow-style: none;
+            background: white;
+            border: 2px solid gray;
+            /* border-radius: 25px; */
+            transform: translate(-20%, 18%);
+            width: 500px;
+            height: 700px;
+            overflow-y: scroll;
+        }
+
+        /* 전체 박스 */
         .container {
-            /* background-color: rgb(255, 238, 206); */
-        }
-
-        /* 모든 div에 테두리를 설정한 후 작업, 작업이 끝나면 제거  */
-        div {
-            /* border: 1px solid black; */
-        }
-        /* 네비메뉴 마우스 올렸을 때 효과 */
-        .nav-item:hover{
-            text-decoration: underline black;
-         }
-
-        /* 알파벳 심볼  */
-        .simbol {
-            font-size: 25px;
-            background-color: rgb(5, 197, 255);
-            width: 50px;
-            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
-            position: relative;
-            top: 100px;
-            left: 50%;
         }
 
-        .card-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        /* 단어 박스 */
+        .word-box {
+            border: 2px solid gray;
+            /* border-radius: 30px; */
             width: 200px;
-            gap: 24px;
-            border: 1px solid #ebeaec;
-            /* 그림자의 x축 방향 위치 */
-            /* 그림자의 y축 방향 위치 */
-            /* 그림자의 옅은 (퍼트림)정도 */
-            /* 그림자의 크기 */
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 20px;
-        }
-        .wrap{
+            height: 150px;
             display: flex;
-            justify-content: row;
-            gap: 20px;
-            position: relative;
-            top: 150px;
+            justify-content: center;
+            align-items: center;
+            transform: translate(-80%, -100%);
         }
-        .line{
-            position: relative;
-            top: 120px;
-            border: 1px;
-            height: 2px;
-            background: black;
+
+        .word {
+            font-size: 30px;
+        }
+
+        /* 네비 제외 메인 박스 */
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .speaker-icon {
+            width: 40px;
+            background-color: white;
+        }
+
+        .speaker-box {
+            background-color: white;
+            border: none;
         }
     </style>
 </head>
@@ -107,95 +120,100 @@
             </div>
         </nav>
         <!-- 내비 끝 -->
-        <!-- 알파벳 심볼 시작 -->
-        <section class="main">
-            <div class="simbol">A</div>
-            <!-- 알파벳 심볼 끝 -->
-        </section>
-        <!-- 알파벳 카드 시작 -->
-         <hr class="line">
-        <div class="wrap">
-            <div class="card-container">
-                <div class="word">about</div>
+        <!-- 단어 시작 -->
+        <div class="main">
+            <div class="word-box">
+                <div class="word"> address </div>
+                <button class="speaker-box"><img class="speaker-icon" src="speaker.png"></button>
             </div>
-            <div class="card-container">
-                <div class="word">about</div>
+            <!-- 단어 끝 -->
+            <!-- 예문 시작 -->
+            <div class="example-box">
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Content for list item
+                        </div>
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                </ol>
             </div>
-            <div class="card-container">
-                <div class="word">about</div>
+            <!-- 예문 끝 -->
+            <!-- 문장 작성 시작 -->
+            <div class="sentence-box">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="당신만의 문장을 만들어보세요!"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">button</button>
+                </div>
             </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-        </div>
-        <div class="wrap">
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-        </div>
-        <div class="wrap">
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-        </div>
-        <div class="wrap">
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-            <div class="card-container">
-                <div class="word">about</div>
-            </div>
-        </div>
-        <!-- 알파벳 카드 끝 -->
+            <!-- 문장 작성 끝 -->
 
+        </div>
     </div>
 </body>
 
