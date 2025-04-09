@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 이미지 클릭 시 오디오가 재생됨 -->
+     <img src="speaker.png" alt="Click to Play" id="image" style="cursor: pointer;">
+
+     <!-- 오디오 파일 -->
+     <audio id="audio" src="https://audio.oxforddictionaries.com/en/mp3/address__us_2.mp3" preload="auto"></audio>
+ 
+     <script>
+         // 이미지 요소와 오디오 요소를 가져옴
+         const image = document.getElementById('image');
+         const audio = document.getElementById('audio');
+ 
+         // 이미지 클릭 시 오디오 재생
+         image.addEventListener('click', function() {
+             audio.play();  // 오디오 재생
+         });
+     </script>
+</body>
+</html>
