@@ -13,9 +13,14 @@ body {
           -ms-overflow-style: none;
       }
 
-      ::-webkit-scrollbar {
-          display: none;
-      }
+  ::-webkit-scrollbar {
+      display: none;
+ }
+
+  /* 네비메뉴 마우스 올렸을 때 효과 */
+  .nav-item:hover{
+      text-decoration: underline black;
+   }
 
       /* 예문 박스 */
   .example-box {
@@ -87,6 +92,27 @@ body {
 
   .word {
       font-size: 30px;
+      transform: translate(40%, -25%);
+  }
+  /* 발음기호 표 사진 */
+  .ipk_img{
+    width: 350px;
+    visibility: hidden;
+	position: absolute;
+	opacity: 0; /* 투명하게 */
+    transform: translate(-120%, -10%);
+  }
+  .ipk_img.show{
+    /* position: absolute; */
+	opacity: 1;
+	visibility: visible;
+    transition: visibility 0s, opacity 0.5s ease;
+  }
+
+  /* 발음기호표 보이게 하는 눈 이미지 */
+  .show_ipk_img{
+    width: 30px;
+    transform: translate(100%, 120%);
   }
 
   /* 네비 제외 메인 박스 */
@@ -96,14 +122,16 @@ body {
       align-items: center;
   }
 
-  .speaker-icon {
-      width: 40px;
+  .play_audio {
+      width: 80px;
       background-color: white;
+      cursor: pointer;
   }
 
   .speaker-box {
       background-color: white;
       border: none;
+      transform: translate(-120%, 120%);
 
   }
   
@@ -119,8 +147,8 @@ body {
       border-width: 0 0 1px;
       border-color: black;
       background-color: #e6f5ff; /* #ccebff #e6f5ff*/
-      width: 450px;
-      transform: translate(0%, -100%);
+      width: 380px;
+      transform: translate(2%, -100%);
   }
 
   .maked-sentence-box {
@@ -137,12 +165,59 @@ body {
       padding:6px 18px; /* Add some spacing around the content */
       background:#ccebff;
       }
-    #insertSentBtn {
-        position:relative;
-        transform: translate(-20%, -10%);
-    }
+   }
+   #insetsentbtn{
+   	 border: none;
+     position:relative;
+     transform: translate(20%, -70%);
+     background:#66c2ff;
+     color: white;
+     font-weight: 700;
+  }
+  .delSentBtnBox{
+  	text-align: right;
+   	/* background: red; */
+     position:relative;
+     transform: translate(0%, -50%);
+  }
+  .delSentBtn{
+  	border: none;
+  	background:#66c2ff;
+  	border-radius: 5px;
   }
 
+  /* 학습 완료 버튼 스타일 */
+.completed-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #28a745; /* 초록 계열 */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 200px;
+}
+
+.completed-btn:hover {
+  background-color: #218838; /* 호버 시 다크 초록 */
+  transform: scale(1.05);
+}
+
+/* 체크 아이콘 스타일 */
+.check-icon {
+  margin-right: 8px;
+  font-size: 18px; /* 체크 아이콘 크기 */
+}
+
+/* 클릭 시 효과 */
+.completed-btn:active {
+  transform: scale(0.98);
+}
     </style>
 </head>
 
@@ -181,8 +256,13 @@ body {
         <div class="main">
             <div class="word-box">
                 <div class="word"> address </div>
-                <button class="speaker-box"><img class="speaker-icon" src="speaker.png"></button>
+                <img class="show_ipk_img" src="eyes_icon.png" >
+                <div class="speaker-box">
+                    <img class="speaker-icon" src="speaker.png">
+                    <div class="ipk">æˌdrɛs</div>
+                </div>
             </div>
+            <div class="ipk_img_box"><img class="ipk_img" src="ipk_img.png"></div>
             <!-- 단어 끝 -->
             <!-- 예문 시작 -->
             <div class="example-box">
@@ -258,6 +338,10 @@ body {
                         <span class="badge text-bg-primary rounded-pill">14</span>
                     </li>
                 </ol>
+                <!-- 학습 완료 버튼 -->
+                <button class="completed-btn">
+                    <span class="check-icon">&#10003;</span>
+                </button>
             </div>
             <!-- 예문 끝 -->
             <!-- 문장 작성 시작 -->
@@ -287,6 +371,16 @@ body {
 
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const toggleBtn = document.querySelector('.show_ipk_img');
+            const ipkImg = document.querySelector('.ipk_img');
+
+            toggleBtn.addEventListener('click', function(){
+                ipkImg.classList.toggle('show');
+            });
+        });
+    </script>
 </body>
 
 </html>

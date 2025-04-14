@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <c:forEach items="${audioList}" var="audio">
+        <!-- 오디오 데이터의 수만큼 반복되는 부분 -->
+        <button class="speaker-box">
+            <img alt="Click to play" class="play-audio" src="/resources/assets/img/speaker.png">
+            <audio class="audio-player" src="${audio.audioFile}" preload="auto"></audio>
+        </button>
+    </c:forEach>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.speaker-box');
+    
+            buttons.forEach(function(button) {
+                const audio = button.querySelector('.audio-player');
+                const image = button.querySelector('.play-audio');
+    
+                image.addEventListener('click', function () {
+                    audio.play();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
