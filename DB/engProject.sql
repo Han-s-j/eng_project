@@ -114,21 +114,34 @@ VALUES ('1', sent_seq.NEXTVAL, 'Please note my change of address.', 'test');
 INSERT INTO my_sent_list (word_num, sent_num, my_sent, mem_id)
 VALUES ('1',sent_seq.NEXTVAL, 'Is that your home address?', 'test');
 
--- 사용자 문장 조회
 select *
-from my_sent_list
-WHERE mem_id = 'su';
+from my_sent_list;
+-- 사용자 문장 조회
+select sent_num, my_sent, sent_reg_date
+		FROM my_sent_list
+		WHERE mem_id = 'su'
+		AND del_yn = 'N'
+        ORDER BY sent_reg_date DESC;
+        
+-- 사용자 문장 조회 (sent_Num)
+SELECT sent_num, my_sent, mem_id, del_yn
+FROM my_sent_list
+WHERE mem_id = 'su'
+AND sent_num = '95'
+AND del_yn = 'N';
 
+
+
+-- 문장 삭제
+UPDATE my_sent_list
+SET del_yn = 'N'
+WHERE sent_num = 85
+AND mem_id = 'su';
+        
 -- 문장 데이터 삭제
 DELETE 
 FROM my_sent_list
 WHERE mem_id = 'su';
-
-DELETE 
-FROM my_sent_list;
-
-
-
 
 SELECT a.word_eng, b.my_sent,b.sent_num, c.mem_id
 FROM word_list a
@@ -166,13 +179,6 @@ AND  a.word_eng = 'address'
 AND b.mem_id = 'test'
 ORDER BY sent_reg_date DESC;
 
-
--- 문장 삭제
-UPDATE my_sent_list
-SET del_yn = 'Y'
-WHERE sent_num = 60
-AND mem_id = 'su';
-
 -- 컬럼명 변경
 ALTER TABLE my_sent_list
 RENAME COLUMN use_yn TO del_yn;
@@ -204,7 +210,7 @@ FROM word_list a,audio_list b
 WHERE a.word_num =b.word_num
 AND  a.word_num = 4;
 
-SELECT ipk_eng
+SELECT *
 FROM audio_list;
 
 -- 단어번호에 맞는 예문 출력
@@ -247,3 +253,58 @@ ORDER BY sent_reg_date DESC ;
         
 CREATE OR REPLACE DIRECTORY sql_dir AS 'C:\sql_backup\';
 GRANT READ, WRITE ON DIRECTORY sql_dir TO eng;
+
+INSERT INTO audio_list (word_num, audio_num, audio_file, ipk_eng)
+VALUES (1, 3, 'https://audio.oxforddictionaries.com/en/mp3/about__us_1.mp3', '??ba?t');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 15, 'on the subject of; concerning');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 16, 'so as to affect');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 17, 'used to indicate movement within a particular area');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 18, 'used to express location in a particular place');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 19, 'used to describe a quality apparent in a person');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 20, 'used to indicate movement in an area');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 21, 'used to express location in a particular place');
+
+INSERT INTO def_list (word_num, def_num, def_eng)
+VALUES (1, 22, '(used with a number or quantity) approximately');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (14, 14, 'I was thinking about you');
+
+--
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (14, 14, 'I was thinking about you');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (15, 15, 'there is nothing we can do about it');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (16, 16, 'she looked about the room');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (17, 17, 'rugs strewn about the hall');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (18, 18, 'there was a look about her that said everything');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (19, 19, 'men were floundering about');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (20, 20, 'there was a lot of flu about');
+
+INSERT INTO ex_list (def_num, ex_num, ex_eng)
+VALUES (21, 21, 'reduced by about 5 percent');
