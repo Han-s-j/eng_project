@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>문장 피드백</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <textarea id="inputSentence" placeholder="문장을 입력하세요..."></textarea>
+    <button id="checkBtn">피드백 받기</button>
+    
+    <div id="result" style="display:none;">
+      <p><strong>수정된 문장:</strong> <span id="corrected"></span></p>
+      <p><strong>점수:</strong> <span id="score"></span></p>
+      <p><strong>피드백:</strong> <span id="feedback"></span></p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

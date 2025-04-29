@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="speedSlider">Speed: </label>
+        <input type="range" id="speedSlider" min="0.4" max="1.4" step="0.2" value="1">
+        <span id="speedValue">1</span>
+    </div>
+    <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>문장</th>
+            <th>발음</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="sentence">I like to play the piano.</td>
+            <td><button class="speakBtn">🔊</button></td>
+            <td><button class="del-btn">X</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="sentence">She is reading a book.</td>
+            <td><button class="speak-btn">🔊</button></td>
+            <td><button class="del-btn">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+<script>
+    let voices = [];
+    let googleVoice;
+
+    // 음성 로딩 보장
+    window.speechSynthesis.onvoiceschanged = () => {
+        voices = speechSynthesis.getVoices();
+        googleVoice = voices.find(v => v.name.includes('Google US English'));
+    };
+
+     // 슬라이더 값이 변경될 때마다 값 표시
+  document.getElementById("speedSlider").addEventListener("input", (e) => {
+    document.getElementById("speedValue").textContent = e.target.value; // 슬라이더 값 표시
+  });
+
+    // 각 버튼에 클릭 이벤트 추가
+  document.querySelectorAll(".speakBtn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const sentence = btn.closest("tr").querySelector(".sentence").innerText;
+      const utter = new SpeechSynthesisUtterance(sentence);
+      utter.lang = "en-US";
+
+      utter.rate = parseFloat(document.getElementById("speedSlider").value); // 슬라이더 값으로 속도 설정
+      
+      if (googleVoice) utter.voice = googleVoice;
+      
+      speechSynthesis.speak(utter);
+    });
+  });
+  </script>
+</html>
+  

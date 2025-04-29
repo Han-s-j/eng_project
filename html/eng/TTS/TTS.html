@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        #speakBtn {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #speakBtn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="input-container">
+        <input type="text" id="textInput" placeholder="여기에 텍스트를 입력하세요" />
+    </div>
+    <button id="speakBtn">🔊</button> <!-- 스피커 아이콘 버튼 -->
+</div>
+
+<script>
+    const speakBtn = document.getElementById("speakBtn");
+    const textInput = document.getElementById("textInput");
+
+    speakBtn.addEventListener("click", function () {
+        const text = textInput.value;
+
+        if (text !== "") {
+            const speech = new SpeechSynthesisUtterance(); // 먼저 객체 생성
+            speech.text = text;
+            speech.lang = "en-US";
+
+            const voices = window.speechSynthesis.getVoices();
+            console.log(voices); // 사용 가능한 음성 확인
+
+            // 자연스러운 Google 음성이 있다면 설정
+            const selectedVoice = voices.find(v => v.name.includes("Google US English"));
+            if (selectedVoice) {
+                speech.voice = selectedVoice;
+            }
+
+            window.speechSynthesis.speak(speech);
+        } else {
+            alert("텍스트를 입력해 주세요.");
+        }
+    });
+</script>
+
+
+</body>
+</html>

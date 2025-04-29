@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "AI 문장 피드백",
+    "version": "1.0",
+    "description": "영어 문장 교정과 점수를 알려줘요!",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "sheep_icon2.png",
+        "48": "sheep_icon2.png"
+      }
+    },
+    "permissions": ["storage"],
+    "icons": {
+      "16": "sheep_icon2.png",
+      "48": "sheep_icon2.png"
+    }
+  }
+  
