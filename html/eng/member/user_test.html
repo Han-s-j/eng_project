@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Waveform & Pitch Visualization</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Waveform</h2>
+  <canvas id="waveform" width="800" height="200"></canvas>
+
+  <h2>Pitch Contour</h2>
+  <canvas id="pitch-graph" width="800" height="200"></canvas>
+
+  <script>
+    // Web Audio API 설정
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const analyser = audioContext.createAnalyser();
+    const waveformCanvas = document.getElementById('waveform');
+    const pitchCanvas = document.getElementById('pitch-graph');
+    const waveformContext = waveformCanvas.getContext('2d');
+    const pitchContext = pitchCanvas.getContext('2d');
+
+    // 파일 로드 후 음성 분석
+    function loadAudio(file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        audioContext.decodeAudioData(event.target.result, function(buffer) {
+          visualizeAudio(buffer);
+        });
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    // 오디오 분석 및 시각화
+    function visualizeAudio(buffer) {
+      // 파형 시각화
+      const source = audioContext.createBufferSource();
+      source.buffer = buffer;
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+      source.start();
+
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+
+      function drawWaveform() {
+        analyser.getByteFrequencyData(dataArray);
+        waveformContext.clearRect(0, 0, waveformCanvas.width, waveformCanvas.height);
+        waveformContext.beginPath();
+        for (let i = 0; i < bufferLength; i++) {
+          const x = (i / bufferLength) * waveformCanvas.width;
+          const y = (dataArray[i] / 255) * waveformCanvas.height;
+          waveformContext.lineTo(x, y);
+        }
+        waveformContext.stroke();
+        requestAnimationFrame(drawWaveform);
+      }
+      drawWaveform();
+
+      // 피치 윤곽 시각화
+      const pitchData = extractPitch(buffer);
+      drawPitchGraph(pitchData);
+    }
+
+    // 피치 추출 예시 (단순히 pitch의 변화만 보여주는 예)
+    function extractPitch(buffer) {
+      // 여기서는 음성에서 pitch를 추출하는 대신,
+      // 단순히 예시로 가상의 피치 데이터를 사용합니다.
+      // 실제 피치 분석은 외부 라이브러리로 처리 가능합니다.
+      const pitchData = [];
+      for (let i = 0; i < buffer.length / 1000; i++) {
+        pitchData.push(Math.random() * 200 + 100);  // 가상의 피치 데이터
+      }
+      return pitchData;
+    }
+
+    // 피치 그래프 그리기
+    function drawPitchGraph(pitchData) {
+      pitchContext.clearRect(0, 0, pitchCanvas.width, pitchCanvas.height);
+      pitchContext.beginPath();
+      for (let i = 0; i < pitchData.length; i++) {
+        const x = (i / pitchData.length) * pitchCanvas.width;
+        const y = (pitchData[i] / 400) * pitchCanvas.height;
+        pitchContext.lineTo(x, y);
+      }
+      pitchContext.stroke();
+    }
+
+    const syllables = [
+  { syllable: 'BEAU', start: 0.0, end: 0.3, stress: 1 },
+  { syllable: 'ti',   start: 0.3, end: 0.5, stress: 0 },
+  { syllable: 'ful',  start: 0.5, end: 0.75, stress: 0 }
+];
+
+    // syllables: [{syllable: 'BEAU', start: 0.0, end: 0.3, stress: 1}, ...]
+function drawSyllablesOverlay(ctx, syllables, totalDuration, canvasWidth, canvasHeight) {
+  syllables.forEach(syl => {
+    const x = (syl.start / totalDuration) * canvasWidth;
+    const width = ((syl.end - syl.start) / totalDuration) * canvasWidth;
+    ctx.fillStyle = syl.stress === 1 ? 'rgba(255, 0, 0, 0.3)' : 'rgba(100, 100, 100, 0.2)';
+    ctx.fillRect(x, 0, width, canvasHeight);
+    ctx.fillStyle = 'black';
+    ctx.font = '14px Arial';
+    ctx.fillText(syl.syllable, x + width / 4, canvasHeight - 10);
+  });
+}
+
+    // 파일 입력
+    const inputFile = document.createElement('input');
+    inputFile.type = 'file';
+    inputFile.accept = 'audio/*';
+    inputFile.onchange = function(event) {
+      const file = event.target.files[0];
+      loadAudio(file);
+    };
+    document.body.appendChild(inputFile);
+  </script>
+</body>
+</html>
