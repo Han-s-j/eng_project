@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>음성 녹음</title>
+</head>
+<body>
+  <button id="recordBtn">🎤 녹음 시작</button>
+  <audio id="audioPlayer" controls></audio>
+
+  <script>
+    let isRecording = false;
+    let mediaRecorder;
+    let audioChunks = [];
+
+    const recordBtn = document.getElementById("recordBtn");
+    const audioPlayer = document.getElementById("audioPlayer");
+
+    recordBtn.addEventListener("click", async () => {
+      if (!isRecording) {
+        // 🎤 녹음 시작
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => {
+          audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          const url = URL.createObjectURL(blob);
+          audioPlayer.src = url;
+
+          // 📨 서버로 업로드
+          const formData = new FormData();
+          formData.append('audio', blob, 'recording.webm');
+
+          fetch('http://localhost:5000/upload', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('분석 결과:', data);
+            alert('업로드 완료! pitch: ' + data.pitch + ', energy: ' + data.energy);
+          });
+        };
+
+        mediaRecorder.start();
+        isRecording = true;
+        recordBtn.textContent = "⏹️ 녹음 정지";
+
+      } else {
+        // ⏹️ 녹음 종료
+        mediaRecorder.stop();
+        isRecording = false;
+        recordBtn.textContent = "🎤 녹음 시작";
+      }
+    });
+    navigator.mediaDevices.enumerateDevices()
+  .then(devices => {
+    const audioInputs = devices.filter(device => device.kind === 'audioinput');
+    console.log("마이크 장치 목록:", audioInputs);
+    if (audioInputs.length === 0) {
+      alert("마이크 장치가 감지되지 않았어요 😥");
+    } else {
+      alert(`마이크 ${audioInputs.length}개 발견됨! 콘솔에서 확인해 보세요.`);
+    }
+  });
+  navigator.mediaDevices.enumerateDevices()
+  .then(devices => {
+    const mics = devices.filter(d => d.kind === 'audioinput');
+    console.log("마이크 장치:", mics);
+  });
+  </script>
+</body>
+</html>
