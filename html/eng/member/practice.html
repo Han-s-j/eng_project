@@ -10,19 +10,62 @@
     #title{
         position: relative;
         top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
     }
-    #title_name{
-        font-size: 30px;
+    hr {
+        width: 90%; /* 예시 */
+        border: 1px solid #ccc;
+    }
+    #user_sent{
+        font-size: 20px;
     }
     #user_box{
         position: relative;
         top: 120px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        height: auto;
     }
-    #user_sent{
-        font-size: 20px;
+    #left_col{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        border-right: 1px solid #ccc;
+        height: 100%;
+    }
+    #right_col{
+        width: 50%;
+        
+    }
+    #chart_box{
+        position: relative;
+        text-align: center;
+    }
+    #chart_box canvas {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    #loading{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        font-weight: bold;
+        font-size: 18px;
+
     }
     </style>
 </head>
@@ -57,11 +100,33 @@
         </nav>
         <!-- 내비 끝 -->
         <section id="title">
-            <div id="title_name">👄</div>
+            <div id="user_sent">
+                🗣️ 연습 문장 : " Look how they shine for you. "
+            </div>
             <hr>
          </section>
          <section id="user_box">
-            <div id="user_sent">
+            <div id="left_col">
+                <div id="chart_box">
+                    <div id="loading" style="position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-weight: bold;
+                        font-size: 18px;
+                        display: none;
+                        ">
+                        <img src="/resources/assets/img/loading.gif">
+                        생성 중...
+                    </div>
+                    <h4>📈 강세 분석</h4>
+                    <canvas id="stressChart"></canvas>
+                </div>
+                <div id="audio_box">
+                    <audio id="ttsAudio" controls></audio>
+                </div>
+            </div>
+            <div id="right_col">
                 abcd
             </div>
          </section>
