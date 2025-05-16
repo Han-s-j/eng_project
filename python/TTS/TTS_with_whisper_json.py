@@ -17,15 +17,16 @@ import shutil
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=[
-    "http://127.0.0.1:3000",  # 이전 React 개발 주소
+    "http://127.0.0.1:3000",  # 이전 개발 주소
     "http://localhost:8080"   # JSP(Spring) 주소
+    ,"http://192.168.0.35:8080"
                                               ])
 model = whisper.load_model("base")  # whisper-timestamped
 
 @app.route('/analyze', methods=['POST', 'OPTIONS'])
 def analyze_text():
     origin = request.headers.get('Origin', '')
-    allowed_origins = ["http://localhost:8080", "http://127.0.0.1:3000"]
+    allowed_origins = ["http://localhost:8080", "http://127.0.0.1:3000", "http://192.168.0.35:8080"]
     if request.method == 'OPTIONS':
         # CORS preflight 요청 응답
         response = app.make_default_options_response()
@@ -95,8 +96,71 @@ def analyze_text():
     return jsonify({
         "words": word_data,
         "original_text": text,
-        "audio_url": "http://localhost:5000/static/tts_output.mp3"
+        "audio_url": "http://192.168.0.35:5000/static/tts_output.mp3"
     })
 
+# 사용자 음성 분석
+@app.route('/analyze_file', methods=['POST'])
+def analyze_file():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file uploaded"}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "Empty filename"}), 400
+
+    # 확장자 추출
+    ext = os.path.splitext(file.filename)[-1].lower()
+    if ext not in ['.mp3', '.m4a']:
+        return jsonify({"error": "Unsupported file format"}), 400
+
+    # 임시 저장
+    with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as input_fp:
+        file.save(input_fp.name)
+        input_path = input_fp.name
+
+    # 변환: m4a or mp3 → wav
+    wav_path = input_path.replace(ext, ".wav")
+    AudioSegment.from_file(input_path, format=ext[1:]).export(wav_path, format="wav")
+
+    # Whisper로 분석
+    result = whisper.transcribe(model, wav_path)
+    y, sr = librosa.load(wav_path)
+
+    word_data = []
+    for segment in result['segments']:
+        for word in segment['words']:
+            word_text = word['text'].strip()
+            start = word['start']
+            end = word['end']
+
+            if end > start:
+                start_sample = int(start * sr)
+                end_sample = int(end * sr)
+                y_segment = y[start_sample:end_sample]
+
+                rms = float(np.mean(librosa.feature.rms(y=y_segment)))
+                pitch_values = librosa.yin(y_segment, fmin=50, fmax=400, sr=sr)
+                pitch = float(np.nanmean(pitch_values)) if np.any(~np.isnan(pitch_values)) else 0.0
+                duration = float(end - start)
+
+                word_data.append({
+                    "word": word_text,
+                    "start": round(start, 2),
+                    "end": round(end, 2),
+                    "rms": round(rms, 5),
+                    "pitch": round(pitch, 2),
+                    "duration": round(duration, 3)
+                })
+
+    os.remove(input_path)
+    os.remove(wav_path)
+
+    return jsonify({
+        "words": word_data,
+        "source": "uploaded_audio"
+    })
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
