@@ -21,6 +21,6 @@ TTS(음성 합성) 기능을 통해 사용자 발음 분석까지 가능한 영�
 | 프론트엔드 | HTML, CSS, JavaScript, Thymeleaf       |
 | 백엔드     | Spring (Java), Python (Flask - TTS 분석) |
 | DB         | Oracle DB                              |
-| 기타       | Figma, VSCode,  PyCharm                      |
+| 툴       | Figma, VSCode,  PyCharm                      |
 
 ---
